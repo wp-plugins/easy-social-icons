@@ -1,0 +1,20 @@
+table.cnss-social-icon tr td, table.cnss-social-icon, table.cnss-social-icon tr {
+	padding:0 !important;
+	margin:0 !important;
+	border:none !important;
+	/*width:auto !important;
+	height:auto !important;*/
+	vertical-align:middle !important;;
+}
+table.cnss-social-icon tr td img{
+	max-width:100% !important;
+/*    background: transparent;
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF,endColorstr=#00FFFFFF)"; 
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF,endColorstr=#00FFFFFF);   
+    zoom: 1;*/
+}
+/*table.cnss-social-icon tr td img:hover{
+	opacity:0.5;
+	filter:alpha(opacity=50);
+	margin-top:-15px;
+}*/
