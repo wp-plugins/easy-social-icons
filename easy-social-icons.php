@@ -516,7 +516,7 @@ function cn_social_icon() {
 	{ 
 	echo $vorh=='vertical'?'<tr>':'';
 	$image_url = $image_file_path.'/'.$icon->image_url;
-	?><td><a <?php echo ($icon->target==1)?'target="_blank"':'' ?> title="<?php echo $icon->title ?>" href="<?php echo $icon->url ?>"><img src="<?php echo $image_url?>" border="0" width="<?php echo $cnss_width ?>" height="<?php echo $cnss_width ?>" /></a></td><?php 
+	?><td><a <?php echo ($icon->target==1)?'target="_blank"':'' ?> title="<?php echo $icon->title ?>" href="<?php echo $icon->url ?>"><img src="<?php echo $image_url?>" border="0" width="<?php echo $cnss_width ?>" height="<?php echo $cnss_width ?>" /></a>&nbsp;</td><?php 
 	echo $vorh=='vertical'?'</tr>':'';
 	}
 	echo $vorh=='horizontal'?'</tr>':'';

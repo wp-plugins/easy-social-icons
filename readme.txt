@@ -10,22 +10,9 @@ You can upload your own social icon, set your social URL, choose weather you wan
 
 == Description ==
 
-You can upload your own social icon, set your social URL, choose weather you want to display vertical or horizontal. You can use the shortcode <strong>[cn-social-icon]</strong> in page/post, template tag for php file <strong>&lt;?php if ( function_exists('cn_social_icon') ) echo cn_social_icon(); ?&gt;</strong> also you can use the widget <strong>"Easy Social Icons"</strong> for sidebar.
-
-= Key Feature =
-
-
-* You can upload your own social icons, set URL for that icon with sort order, target window etc.
-* You will get the add/edit/delete option for icons
-* You can set the icon width and height to fit in your template/design perfectly
-* You can display your social share icon vertically or horizontally to match perfectly with your template/design.
-* You can put your social icon set in the sidebar using the widget
-* You can insert your social icon set in pages/posts using short code
-* Also if you are familiar with php code then you can use the template tag to place the social icon set anywhere in the php template file
+You can upload your own social icon, set your social URL, choose weather you want to display vertical or horizontal. You can use the shortcode &lt;strong&gt;[cn-social-icon]&lt;/strong&gt; in page/post, template tag for php file &lt;strong&gt;&lt;?php if ( function_exists('cn_social_icon') ) echo cn_social_icon(); ?&gt;&lt;/strong&gt; also you can use the widget &lt;strong&gt;"Easy Social Icons"&lt;/strong&gt; for sidebar.
 
 Please visit our site <a href="http://www.cybernetikz.com/">www.cybernetikz.com/</a>
-
-Please send us your idea/suggestion. Thanks.
 
 == Installation ==
 
@@ -51,7 +38,10 @@ This is my first attempt at a plugin, so I don't have a FAQ yet.
 
 == Changelog ==
 
-= 1.0.0 =
+= 1.1 =
+Some CSS fix
+
+= 1.0 =
 * First version.
 
 == Thank You ==
