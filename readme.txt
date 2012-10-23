@@ -4,7 +4,7 @@ Donate link:
 Tags: easy social icon,easy social icons,social icon,social icons,social,social share,follow,followus,follow us
 Requires at least: 2.9.2
 Tested up to: 3.4.2
-Stable tag: 1.1
+Stable tag: 1.0
 
 You can upload your own social icon, set your social URL, choose weather you want to display vertical or horizontal.
 
@@ -14,15 +14,13 @@ You can upload your own social icon, set your social URL, choose weather you wan
 
 = Key Feature =
 
-
-*You can upload your own social icons, set URL for that icon with sort order, target window etc.
-*You will get the add/edit/delete option for icons
-*You can set the icon width and height to fit in your template/design perfectly
-*You can display your social share icon vertically or horizontally to match perfectly with your template/design.
-*You can put your social icon set in the sidebar using the widget
-*You can insert your social icon set in pages/posts using short code
-*Also if you are familiar with php code then you can use the template tag to place the social icon set anywhere in the php template file
-
+* You can upload your own social icons, set URL for that icon with sort order, target window etc.
+* You will get the add/edit/delete option for icons
+* You can set the icon width and height to fit in your template/design perfectly
+* You can display your social share icon vertically or horizontally to match perfectly with your template/design.
+* You can put your social icon set in the sidebar using the widget
+* You can insert your social icon set in pages/posts using short code
+* Also if you are familiar with php code then you can use the template tag to place the social icon set anywhere in the php template file
 
 Please visit our site <a href="http://www.cybernetikz.com/">www.cybernetikz.com/</a>
 
@@ -50,7 +48,7 @@ This is my first attempt at a plugin, so I don't have a FAQ yet.
 
 == Changelog ==
 
-= 1.1 =
+= 1.0.1 =
 CSS fix
 
 = 1.0 =
