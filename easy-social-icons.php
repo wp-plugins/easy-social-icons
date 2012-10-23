@@ -3,7 +3,7 @@
 Plugin Name: Easy Social Icons
 Plugin URI: http://www.cybernetikz.com
 Description: You can upload your own social icon, set your social URL, choose weather you want to display vertical or horizontal. You can use the shortcode <strong>[cn-social-icon]</strong> in page/post, template tag for php file <strong>&lt;?php if ( function_exists('cn_social_icon') ) echo cn_social_icon(); ?&gt;</strong> also you can use the widget <strong>"Easy Social Icons"</strong> for sidebar.
-Version: 1.0
+Version: 1.1
 Author: cybernetikz
 Author URI: http://www.cybernetikz.com
 License: GPL2
@@ -516,7 +516,7 @@ function cn_social_icon() {
 	{ 
 	echo $vorh=='vertical'?'<tr>':'';
 	$image_url = $image_file_path.'/'.$icon->image_url;
-	?><td><a <?php echo ($icon->target==1)?'target="_blank"':'' ?> title="<?php echo $icon->title ?>" href="<?php echo $icon->url ?>"><img src="<?php echo $image_url?>" border="0" width="<?php echo $cnss_width ?>" height="<?php echo $cnss_width ?>" /></a>&nbsp;</td><?php 
+	?><td><a <?php echo ($icon->target==1)?'target="_blank"':'' ?> title="<?php echo $icon->title ?>" href="<?php echo $icon->url ?>"><img src="<?php echo $image_url?>" border="0" width="<?php echo $cnss_width ?>" height="<?php echo $cnss_width ?>" /></a></td><?php 
 	echo $vorh=='vertical'?'</tr>':'';
 	}
 	echo $vorh=='horizontal'?'</tr>':'';

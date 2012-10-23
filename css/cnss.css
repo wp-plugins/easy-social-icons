@@ -21,3 +21,9 @@ table.cnss-social-icon tr td img{
 table.cnss-social-icon tr td a img, table.cnss-social-icon tr td a:hover img, table.cnss-social-icon tr td a img:hover{
 	border:none !important;
 }
+table.cnss-social-icon tr td a img:hover, table.cnss-social-icon tr td a:hover img{
+	max-width:100% !important;	
+}
+table.cnss-social-icon tr td img{
+	margin-right:4px;
+}
