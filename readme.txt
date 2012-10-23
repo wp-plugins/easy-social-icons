@@ -48,9 +48,6 @@ This is my first attempt at a plugin, so I don't have a FAQ yet.
 
 == Changelog ==
 
-= 1.0.1 =
-CSS fix
-
 = 1.0 =
 * First version.
 
