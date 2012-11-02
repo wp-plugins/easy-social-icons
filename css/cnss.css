@@ -2,9 +2,8 @@ table.cnss-social-icon tr td, table.cnss-social-icon, table.cnss-social-icon tr 
 	padding:0 !important;
 	margin:0 !important;
 	border:none !important;
-	/*width:auto !important;
-	height:auto !important;*/
-	vertical-align:middle !important;;
+	vertical-align:middle !important;
+	background:none !important;
 }
 table.cnss-social-icon tr td img{
 	max-width:100% !important;
