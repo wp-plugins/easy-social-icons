@@ -40,6 +40,7 @@ function register_cnss_settings() {
 	register_setting( 'cnss-settings-group', 'cnss-width' );
 	register_setting( 'cnss-settings-group', 'cnss-height' );
 	register_setting( 'cnss-settings-group', 'cnss-margin' );
+	register_setting( 'cnss-settings-group', 'cnss-row-count' );
 	register_setting( 'cnss-settings-group', 'cnss-vertical-horizontal' );
 }
 
@@ -48,6 +49,7 @@ function cnss_social_icon_option_fn() {
 	$cnss_width = get_option('cnss-width');
 	$cnss_height = get_option('cnss-height');
 	$cnss_margin = get_option('cnss-margin');
+	$cnss_rows = get_option('cnss-row-count');
 	$vorh = get_option('cnss-vertical-horizontal');
 	$vertical ='';
 	$horizontal ='';
@@ -71,14 +73,18 @@ function cnss_social_icon_option_fn() {
 			<th scope="row">Icon Margin <em><small>(Gap between each icon)</small></em></th>
 			<td><input type="text" name="cnss-margin" id="cnss-margin" class="small-text" value="<?php echo $cnss_margin?>" />px</td>
 			</tr>
+
+			<tr valign="top">
+			<th scope="row">Number of Rows</th>
+			<td><input type="text" name="cnss-row-count" id="cnss-row-count" class="small-text" value="<?php echo $cnss_rows?>" /></td>
+			</tr>
+			
 			<tr valign="top">
 			<th scope="row">Display Icon</th>
 			<td>
 				<input <?php echo $horizontal ?> type="radio" name="cnss-vertical-horizontal" id="horizontal" value="horizontal" />&nbsp;<label for="horizontal">Horizontally</label><br />
 				<input <?php echo $vertical ?> type="radio" name="cnss-vertical-horizontal" id="vertical" value="vertical" />&nbsp;<label for="vertical">Vertically</label></td>
 			</tr>
-			
-			
 		</table>
 		
 		<p class="submit">
@@ -112,6 +118,7 @@ function cnss_db_install () {
 	  add_option( 'cnss-width', '32');
 	  add_option( 'cnss-height', '32');
 	  add_option( 'cnss-margin', '4');
+	  add_option( 'cnss-row-count', '1');
 	  add_option( 'cnss-vertical-horizontal', 'horizontal');
    }
 }
@@ -503,6 +510,7 @@ function cn_social_icon() {
 	$cnss_width = get_option('cnss-width');
 	$cnss_height = get_option('cnss-height');
 	$cnss_margin = get_option('cnss-margin');
+	$cnss_rows = get_option('cnss-row-count');
 	$vorh = get_option('cnss-vertical-horizontal');
 
 	$upload_dir = wp_upload_dir(); 
@@ -513,24 +521,33 @@ function cn_social_icon() {
 	$video_info = $wpdb->get_results($sql);
 	$icon_count = count($video_info);
 	
+	$_collectionSize = count($video_info);
+	$_rowCount = $cnss_rows ? $cnss_rows : 1;
+	$_columnCount = ceil($_collectionSize/$_rowCount);
+	
 	if($vorh=='vertical')
 		$table_width = $cnss_width;
 	else
-		$table_width = $icon_count*($cnss_width+$cnss_margin);
+		$table_width = $_columnCount*($cnss_width+$cnss_margin);
+		//$table_width = $icon_count*($cnss_width+$cnss_margin);
 	
 	$td_width = $cnss_width+$cnss_margin;
 		
 	ob_start();
 	echo '<table class="cnss-social-icon" style="width:'.$table_width.'px" border="0" cellspacing="0" cellpadding="0">';
-	echo $vorh=='horizontal'?'<tr>':'';
+	//echo $vorh=='horizontal'?'<tr>':'';
+	$i=0;
 	foreach($video_info as $icon)
 	{ 
-	echo $vorh=='vertical'?'<tr>':'';
 	$image_url = $image_file_path.'/'.$icon->image_url;
+	echo $vorh=='vertical'?'<tr>':'';
+	if($i++%$_columnCount==0 && $vorh!='vertical' )echo '<tr>';
 	?><td style="width:<?php echo $td_width ?>px"><a <?php echo ($icon->target==1)?'target="_blank"':'' ?> title="<?php echo $icon->title ?>" href="<?php echo $icon->url ?>"><img src="<?php echo $image_url?>" border="0" width="<?php echo $cnss_width ?>" height="<?php echo $cnss_height ?>" /></a></td><?php 
+	if ( ($i%$_columnCount==0 || $i==$_collectionSize) && $vorh!='vertical' )echo '</tr>';
 	echo $vorh=='vertical'?'</tr>':'';
+	//$i++;
 	}
-	echo $vorh=='horizontal'?'</tr>':'';
+	//echo $vorh=='horizontal'?'</tr>':'';
 	echo '</table>';
 	$out = ob_get_contents();
 	ob_end_clean();

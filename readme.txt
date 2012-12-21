@@ -1,9 +1,9 @@
 === Easy Social Icons ===
 Contributors: cybernetikz
 Donate link: 
-Tags: easy social icon,easy social icons,social icon,social icons,social,social share,follow,followus,follow us
+Tags: easy social icon,easy social icons,social icon,social icons,social,social share,follow,followus,follow us,share,icon
 Requires at least: 2.9.2
-Tested up to: 3.4.2
+Tested up to: 3.5
 Stable tag: 1.0
 
 You can upload your own social icon, set your social URL, choose weather you want to display vertical or horizontal.
@@ -20,9 +20,10 @@ You can upload your own social icon, set your social URL, choose weather you wan
 * You can display your social share icon vertically or horizontally to match perfectly with your template/design.
 * You can put your social icon set in the sidebar using the widget
 * You can insert your social icon set in pages/posts using short code
+* You can display the icons split by rows, input the number of rows in the plugins admin option page
 * Also if you are familiar with php code then you can use the template tag to place the social icon set anywhere in the php template file
 
-Please visit our site <a href="http://www.cybernetikz.com/">www.cybernetikz.com/</a>
+Please visit our site <a target="_blank" href="http://www.cybernetikz.com/blog/wordpress-plugins-easy-social-icons/">www.cybernetikz.com/</a>
 
 == Installation ==
 
@@ -45,11 +46,14 @@ This is my first attempt at a plugin, so I don't have a FAQ yet.
 4. display social icons vertically in sidebar using widget 
 5. display social icons vertically in page using shortcode [cn-social-icon]
 6. display social icons horizontally in sidebar using widget 
+7. display social icons split by number of rows
 
 == Changelog ==
 
-= 1.0 =
-* First version.
+= 1.1 =
+* Now you can display the icons split by rows, input the number of rows in the plugins admin option page
+* Some css fixes
+* Icons width / height adjustment fix
 
 == Thank You ==
 
