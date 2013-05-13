@@ -99,6 +99,18 @@ function cnss_social_icon_option_fn() {
 function cnss_db_install () {
    global $wpdb;
    global $cnss_db_version;
+   
+	$srcdir   = ABSPATH.'wp-content/plugins/easy-social-icons/images/icon/';
+	$upload_dir = wp_upload_dir();
+	$targetdir = $upload_dir['basedir'].'/';
+	
+	$files = scandir($srcdir);
+	foreach($files as $fname) 
+	{
+		if($fname=='.')continue;
+		if($fname=='..')continue;
+		copy($srcdir.$fname, $targetdir.$fname);
+	}
 
    $table_name = $wpdb->prefix . "cn_social_icon";
    if($wpdb->get_var("show tables like '$table_name'") != $table_name) {
@@ -111,16 +123,24 @@ function cnss_db_install () {
 	`sortorder` INT NOT NULL DEFAULT '0', 
 	`date_upload` VARCHAR(100) NULL, 
 	`target` tinyint(1) NOT NULL DEFAULT '1',
-	PRIMARY KEY (`id`)) ENGINE = InnoDB";
-      require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
-      dbDelta($sql2);
+	PRIMARY KEY (`id`)) ENGINE = InnoDB;
+	INSERT INTO `wp_cn_social_icon` (`id`, `title`, `url`, `image_url`, `sortorder`, `date_upload`, `target`) VALUES
+	(1, 'facebook', 'http://facebook.com/your-fan-page', '1368459524_facebook.png', 1, '1368459524', 1),
+	(2, 'twitter', 'http://twitter/username', '1368459556_twitter.png', 2, '1368459556', 1),
+	(3, 'flickr', 'http://flickr.com/?username', '1368459641_flicker.png', 3, '1368459641', 1),
+	(4, 'linkedin', 'http://linkedin.com', '1368459699_in.png', 4, '1368459699', 1),
+	(5, 'youtube', 'http://youtube.com/user', '1368459724_youtube.png', 5, '1368459724', 1);	
+	";
+	require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+	dbDelta($sql2);
+	
+	add_option( 'cnss-width', '32');
+	add_option( 'cnss-height', '32');
+	add_option( 'cnss-margin', '4');
+	add_option( 'cnss-row-count', '1');
+	add_option( 'cnss-vertical-horizontal', 'horizontal');
 	  
-	  add_option( 'cnss-width', '32');
-	  add_option( 'cnss-height', '32');
-	  add_option( 'cnss-margin', '4');
-	  add_option( 'cnss-row-count', '1');
-	  add_option( 'cnss-vertical-horizontal', 'horizontal');
-   }
+  }
 }
 
 register_activation_hook(__FILE__,'cnss_db_install');

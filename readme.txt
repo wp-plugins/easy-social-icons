@@ -22,6 +22,7 @@ You can upload your own social icon, set your social URL, choose weather you wan
 * You can insert your social icon set in pages/posts using short code
 * You can display the icons split by rows, input the number of rows in the plugins admin option page
 * Also if you are familiar with php code then you can use the template tag to place the social icon set anywhere in the php template file
+* Built in 5 social icons preloaded as sample icon, to save your time (facebook, twitter, linkedin, flickr, youtube).
 
 Please visit our site <a target="_blank" href="http://www.cybernetikz.com/blog/wordpress-plugins-easy-social-icons/">www.cybernetikz.com/</a>
 
@@ -51,6 +52,7 @@ This is my first attempt at a plugin, so I don't have a FAQ yet.
 == Changelog ==
 
 = 1.1 =
+* Built in 5 social icons preloaded as sample icon, to save your time (facebook, twitter, linkedin, flickr, youtube).
 * Now you can display the icons split by rows, input the number of rows in the plugins admin option page
 * Some css fixes
 * Icons width / height adjustment fix
