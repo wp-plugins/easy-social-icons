@@ -386,7 +386,7 @@ if($msg!='' or $err!='')
 			<th scope="row"><?php echo $uptxt;?></th>
 			<td>
 				<?php if (isset($_GET['mode'])) { ?>
-					<br /><img src="<?php echo $image_url?>" border="0" width="<?php echo $cnss_width ?>"  height="<?php echo $cnss_height ?>" /><br />
+					<br /><img src="<?php echo $image_url?>" border="0" width="<?php echo $cnss_width ?>"  height="<?php echo $cnss_height ?>" alt="<?php echo $title?>" /><br />
 				<?php } ?>
 				<input type="file" name="image_file" id="image_file" value="" />
 			</td>
@@ -493,7 +493,7 @@ function cnss_social_icon_page_fn() {
 				</td>
 				
 				<td>
-					<img src="<?php echo $image_file_path.$vdoinfo->image_url;?>" border="0" width="<?php echo $cnss_width ?>" height="<?php echo $cnss_height ?>" />
+					<img src="<?php echo $image_file_path.$vdoinfo->image_url;?>" border="0" width="<?php echo $cnss_width ?>" height="<?php echo $cnss_height ?>" alt="<?php echo $vdoinfo->title;?>" />
 				</td>
 	
 				<td>
@@ -562,7 +562,7 @@ function cn_social_icon() {
 	$image_url = $image_file_path.'/'.$icon->image_url;
 	echo $vorh=='vertical'?'<tr>':'';
 	if($i++%$_columnCount==0 && $vorh!='vertical' )echo '<tr>';
-	?><td style="width:<?php echo $td_width ?>px"><a <?php echo ($icon->target==1)?'target="_blank"':'' ?> title="<?php echo $icon->title ?>" href="<?php echo $icon->url ?>"><img src="<?php echo $image_url?>" border="0" width="<?php echo $cnss_width ?>" height="<?php echo $cnss_height ?>" /></a></td><?php 
+	?><td style="width:<?php echo $td_width ?>px"><a <?php echo ($icon->target==1)?'target="_blank"':'' ?> title="<?php echo $icon->title ?>" href="<?php echo $icon->url ?>"><img src="<?php echo $image_url?>" border="0" width="<?php echo $cnss_width ?>" height="<?php echo $cnss_height ?>" alt="<?php echo $icon->title ?>" /></a></td><?php 
 	if ( ($i%$_columnCount==0 || $i==$_collectionSize) && $vorh!='vertical' )echo '</tr>';
 	echo $vorh=='vertical'?'</tr>':'';
 	//$i++;
