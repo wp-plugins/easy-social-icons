@@ -10,6 +10,8 @@ You can upload your own social icon, set your social URL, choose weather you wan
 
 == Description ==
 
+<strong>If you need support to get this plugin installed or to have a customized version of the plugin please send us an email to this address <a href="mailto:contact@cybernetikz.com">contact@cybernetikz.com</a></strong>.
+
 You can upload your own social icon, set your social URL, choose weather you want to display vertical or horizontal. You can use the shortcode <strong>[cn-social-icon]</strong> in page/post, template tag for php file <strong><?php if ( function_exists('cn_social_icon') ) echo cn_social_icon(); ?></strong> also you can use the widget <strong>"Easy Social Icons"</strong> for sidebar.
 
 = Key Feature =
