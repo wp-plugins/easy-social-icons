@@ -13,6 +13,7 @@ $pluginsURI = plugins_url('/easy-social-icons/');
 function cnss_my_script() {
 	global $pluginsURI;
 	wp_enqueue_script( 'jquery' );	
+	wp_enqueue_script('jquery-ui-sortable');
 	wp_register_script('cnss_js', $pluginsURI . 'js/cnss.js', array(), '1.0' );
 	wp_enqueue_script( 'cnss_js' );	
 	
@@ -20,7 +21,7 @@ function cnss_my_script() {
 	wp_enqueue_style( 'cnss_css' );	
 }
 add_action('init', 'cnss_my_script');
-
+add_action('wp_ajax_update-social-icon-order', 'cnss_save_ajax_order' );
 add_action('admin_menu', 'cnss_add_menu_pages');
 
 function cnss_add_menu_pages() {
@@ -29,6 +30,8 @@ function cnss_add_menu_pages() {
 	add_submenu_page('cnss_social_icon_page', 'Manage Icons', 'Manage Icons', 'manage_options', 'cnss_social_icon_page', 'cnss_social_icon_page_fn');
 	
 	add_submenu_page('cnss_social_icon_page', 'Add Icons', 'Add Icons', 'manage_options', 'cnss_social_icon_add', 'cnss_social_icon_add_fn');
+	
+	add_submenu_page('cnss_social_icon_page', 'Sort Icons', 'Sort Icons', 'manage_options', 'cnss_social_icon_sort', 'cnss_social_icon_sort_fn');
 	
 	add_submenu_page('cnss_social_icon_page', 'Options', 'Options', 'manage_options', 'cnss_social_icon_option', 'cnss_social_icon_option_fn');
 	
@@ -318,6 +321,95 @@ if (isset($_POST['submit_button'])) {
 }
 
 
+function cnss_social_icon_sort_fn() {
+	global $wpdb;
+	
+	$cnss_width = get_option('cnss-width');
+	$cnss_height = get_option('cnss-height');
+	
+	$image_file_path = "../wp-content/uploads/";
+	$table_name = $wpdb->prefix . "cn_social_icon";
+	$sql = "SELECT * FROM ".$table_name." WHERE 1 ORDER BY sortorder";
+	$video_info = $wpdb->get_results($sql);
+
+?>
+	<div class="wrap">
+		<h2>Sort Icon</h2>
+
+		<div id="ajax-response"></div>
+		
+		<noscript>
+			<div class="error message">
+				<p><?php _e('This plugin can\'t work without javascript, because it\'s use drag and drop and AJAX.', 'cpt') ?></p>
+			</div>
+		</noscript>
+		
+		<div id="order-post-type">
+			<ul id="sortable">
+			<?php foreach($video_info as $vdoinfo) { ?>
+					<li id="item_<?php echo $vdoinfo->id ?>">
+					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+					  <tr style="background:#f7f7f7">
+						<td width="60">&nbsp;<img src="<?php echo $image_file_path.$vdoinfo->image_url;?>" border="0" width="<?php echo $cnss_width ?>" height="<?php echo $cnss_height ?>" alt="<?php echo $vdoinfo->title;?>" /></td>
+						<td><span><?php echo $vdoinfo->title;?></span></td>
+					  </tr>
+					</table>
+					</li>
+			<?php } ?>
+			</ul>
+			
+			<div class="clear"></div>
+		</div>
+		
+		<p class="submit">
+			<a href="#" id="save-order" class="button-primary">Update</a>
+		</p>
+		
+		<script type="text/javascript">
+			jQuery(document).ready(function() {
+				jQuery("#sortable").sortable({
+					tolerance:'intersect',
+					cursor:'pointer',
+					items:'li',
+					placeholder:'placeholder'
+				});
+				jQuery("#sortable").disableSelection();
+				jQuery("#save-order").bind( "click", function() {
+					//alert(jQuery("#sortable").sortable("serialize"));
+					jQuery.post( ajaxurl, { action:'update-social-icon-order', order:jQuery("#sortable").sortable("serialize") }, function(response) {
+						//alert(response);
+						jQuery("#ajax-response").html('<div class="message updated fade"><p>Items Order Updated</p></div>');
+						jQuery("#ajax-response div").delay(3000).hide("slow");
+					});
+				});
+			});
+		</script>
+		
+	</div>
+<?php
+}
+
+function cnss_save_ajax_order() 
+{
+	global $wpdb;
+	$table_name = $wpdb->prefix . "cn_social_icon";
+	parse_str($_POST['order'], $data);
+	if (is_array($data))
+	foreach($data as $key => $values ) 
+	{
+	
+		if ( $key == 'item' ) 
+		{
+			foreach( $values as $position => $id ) 
+				{
+					$wpdb->update( $table_name, array('sortorder' => $position), array('id' => $id) );
+				} 
+		} 
+	
+	}
+}
+
+
 function cnss_social_icon_add_fn() {
 
 	global $err,$msg;
@@ -448,7 +540,7 @@ function cnss_social_icon_page_fn() {
 	$video_info = $wpdb->get_results($sql);
 	?>
 	<div class="wrap">
-	<h2>Edit Icon</h2>
+	<h2>Manage Icons</h2>
 	<script type="text/javascript">
 	function show_confirm(title, id)
 	{

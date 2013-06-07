@@ -22,6 +22,7 @@ You can upload your own social icon, set your social URL, choose weather you wan
 * You can display your social share icon vertically or horizontally to match perfectly with your template/design.
 * You can put your social icon set in the sidebar using the widget
 * You can insert your social icon set in pages/posts using short code
+* Sort social media icons using drag drop
 * You can display the icons split by rows, input the number of rows in the plugins admin option page
 * Also if you are familiar with php code then you can use the template tag to place the social icon set anywhere in the php template file
 * Built in 5 social icons preloaded as sample icon, to save your time (facebook, twitter, linkedin, flickr, youtube).
@@ -50,10 +51,12 @@ This is my first attempt at a plugin, so I don't have a FAQ yet.
 5. display social icons vertically in page using shortcode [cn-social-icon]
 6. display social icons horizontally in sidebar using widget 
 7. display social icons split by number of rows
+8. sort icons usign drag drop
 
 == Changelog ==
 
 = 1.0 =
+* Add sorting icon using drag drop
 * Built in 5 social icons preloaded as sample icon, to save your time (facebook, twitter, linkedin, flickr, youtube).
 * Now you can display the icons split by rows, input the number of rows in the plugins admin option page
 * Some css fixes
