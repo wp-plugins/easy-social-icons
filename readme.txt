@@ -3,7 +3,7 @@ Contributors: cybernetikz
 Donate link: 
 Tags: easy social icon,easy social icons,social icon,social icons,social,social share,follow,followus,follow us,share,icon
 Requires at least: 2.9.2
-Tested up to: 3.5.1
+Tested up to: 3.6
 Stable tag: 1.0
 
 You can upload your own social icon, set your social URL, choose weather you want to display vertical or horizontal.
@@ -38,9 +38,11 @@ Please visit our site <a target="_blank" href="http://www.cybernetikz.com/blog/w
 
 == Frequently Asked Questions ==
 
-= Where do I submit a question? =
+= Ques : How use this plugins? =
+Ans : 
+Use this shortcode for page/post [cn-social-icon] , for php code use this template tag &lt;?php if ( function_exists('cn_social_icon') ) echo cn_social_icon(); ?&gt;
 
-This is my first attempt at a plugin, so I don't have a FAQ yet.
+Also you can use the widget for the sidebar.
 
 == Screenshots ==
 
@@ -61,7 +63,3 @@ This is my first attempt at a plugin, so I don't have a FAQ yet.
 * Now you can display the icons split by rows, input the number of rows in the plugins admin option page
 * Some css fixes
 * Icons width / height adjustment fix
-
-== Thank You ==
-
-Thank you trying this plugin!
