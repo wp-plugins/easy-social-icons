@@ -40,7 +40,7 @@ Please visit our site <a target="_blank" href="http://www.cybernetikz.com/blog/w
 
 = Ques : How use this plugins? =
 Ans : 
-Use this shortcode for page/post [cn-social-icon] , for php code use this template tag &lt;?php if ( function_exists('cn_social_icon') ) echo cn_social_icon(); ?&gt;
+Use this shortcode for page/post <strong>[cn-social-icon]</strong> , for php code use this template tag <strong>&lt;?php if ( function_exists('cn_social_icon') ) echo cn_social_icon(); ?&gt;</strong>
 
 Also you can use the widget for the sidebar.
 
