@@ -2,8 +2,8 @@
 Contributors: cybernetikz
 Donate link: 
 Tags: easy social icon,easy social icons,social icon,social icons,social,social share,follow,followus,follow us,share,icon
-Requires at least: 2.9.2
-Tested up to: 3.6
+Requires at least: 2.8.6
+Tested up to: 3.8
 Stable tag: 1.0
 
 You can upload your own social icon, set your social URL, choose weather you want to display vertical or horizontal.
@@ -61,5 +61,5 @@ Also you can use the widget for the sidebar.
 * Add sorting icon using drag drop
 * Built in 5 social icons preloaded as sample icon, to save your time (facebook, twitter, linkedin, flickr, youtube).
 * Now you can display the icons split by rows, input the number of rows in the plugins admin option page
-* Some css fixes
+* Css fixes
 * Icons width / height adjustment fix
