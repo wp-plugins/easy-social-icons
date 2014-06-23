@@ -17,11 +17,8 @@ You can upload your own social icon, set your social URL, choose weather you wan
 > We assume most of the users would find it easy to install & use this plugin but those who needs support on any of the following:
 >
 > <strong>a. Get the plugin installed </strong>
->
 > <strong>b. Custom feature, custom theme </strong>
->
 > <strong>c. Auditing your wordpress theme & hosting environment</strong>
->
 > <strong>d. Google analytics & webmaster tools</strong>
 >
 > please send an email to this address <a href="mailto:support@cybernetikz.com">support@cybernetikz.com</a>
