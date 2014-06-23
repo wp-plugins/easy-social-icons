@@ -15,6 +15,7 @@ You can upload your own social icon, set your social URL, choose weather you wan
 > <strong>PAID SUPPORT ($30/hr, We ACCEPT PAYPAL )</strong>
 >
 > We assume most of the users would find it easy to install & use this plugin but those who needs support on any of the following:
+>
 > <strong>a. Get the plugin installed </strong>
 >
 > <strong>b. Custom feature, custom theme </strong>
