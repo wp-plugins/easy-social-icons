@@ -24,7 +24,7 @@ You can upload your own social icon, set your social URL, choose weather you wan
 >
 > <strong>d. Google analytics & webmaster tools support</strong>
 >
-> <strong><span style="text-align:center">Custom social icon set $35</span></strong>
+> <strong>e. Custom social icon set $35</strong>
 >
 > please send an email to this address <a href="mailto:support@cybernetikz.com">support@cybernetikz.com</a>
 
