@@ -3,13 +3,18 @@
 Plugin Name: Easy Social Icons
 Plugin URI: http://www.cybernetikz.com
 Description: You can upload your own social icon, set your social URL, choose weather you want to display vertical or horizontal. You can use the shortcode <strong>[cn-social-icon]</strong> in page/post, template tag for php file <strong>&lt;?php if ( function_exists('cn_social_icon') ) echo cn_social_icon(); ?&gt;</strong> also you can use the widget <strong>"Easy Social Icons"</strong> for sidebar.
-Version: 1.0
+Version: 1.1
 Author: cybernetikz
 Author URI: http://www.cybernetikz.com
 License: GPL2
 */
 
+$upload_dir = wp_upload_dir();
+//print_r($upload_dir);
+$baseDir = $upload_dir['basedir'].'/';
+$baseURL = $upload_dir['baseurl'].'/';
 $pluginsURI = plugins_url('/easy-social-icons/');
+
 function cnss_my_script() {
 	global $pluginsURI;
 	wp_enqueue_script( 'jquery' );	
@@ -98,7 +103,6 @@ function cnss_social_icon_option_fn() {
 	<?php 
 }
 
-
 function cnss_db_install () {
    global $wpdb;
    global $cnss_db_version;
@@ -154,7 +158,7 @@ if (isset($_GET['delete'])) {
 	{
 	
 		$table_name = $wpdb->prefix . "cn_social_icon";
-		$image_file_path = "../wp-content/uploads/";
+		$image_file_path = $baseDir; //"../wp-content/uploads/";
 		$sql = "SELECT * FROM ".$table_name." WHERE id =".$_REQUEST['id'];
 		$video_info = $wpdb->get_results($sql);
 		
@@ -169,7 +173,6 @@ if (isset($_GET['delete'])) {
 
 }
 
-
 if (isset($_POST['submit_button'])) {
 
 	if ($_POST['action'] == 'update')
@@ -178,7 +181,8 @@ if (isset($_POST['submit_button'])) {
 		$err = "";
 		$msg = "";
 		
-		$image_file_path = "../wp-content/uploads/";
+		//$image_file_path = "../wp-content/uploads/";
+		$image_file_path = $baseDir;
 		
 			if ($_FILES["image_file"]["name"] != "" ){
 			
@@ -204,7 +208,7 @@ if (isset($_POST['submit_button'])) {
 						$image_file_name = time().'_'.$_FILES["image_file"]["name"];
 						$fstatus = move_uploaded_file($_FILES["image_file"]["tmp_name"], $image_file_path . $image_file_name);
 						if ($fstatus == true){
-							$msg = "File Uploaded Successfully!!!"."<br />";
+							$msg = "Icon upload successfully !"."<br />";
 						}
 					  }
 					}
@@ -238,7 +242,7 @@ if (isset($_POST['submit_button'])) {
 			if (!$results)
 				$err .= "Fail to update database" . "<br />";
 			else
-				$msg .= "Update Successfull!!!" . "<br />";
+				$msg .= "Update successful !" . "<br />";
 		
 		}
 	}// end if update
@@ -251,7 +255,9 @@ if (isset($_POST['submit_button'])) {
 		$url = $_REQUEST['url'];
 		$target = $_REQUEST['target'];
 		
-		$image_file_path = "../wp-content/uploads/";
+		//$image_file_path = "../wp-content/uploads/";
+		$image_file_path = $baseDir;
+		
 		$table_name = $wpdb->prefix . "cn_social_icon";
 		$sql = "SELECT * FROM ".$table_name." WHERE id =".$_REQUEST['id'];
 		$video_info = $wpdb->get_results($sql);
@@ -308,11 +314,11 @@ if (isset($_POST['submit_button'])) {
 			$results3 = $wpdb->query( $update );
 			
 			if (!$results3){
-				$err .= "Update Fail!!!". "<br />";
+				$err .= "Update fails !". "<br />";
 			}
 			else
 			{
-				$msg = "Update Successfull!!!". "<br />";
+				$msg = "Update successful !". "<br />";
 			}
 		}
 		
@@ -322,12 +328,12 @@ if (isset($_POST['submit_button'])) {
 
 
 function cnss_social_icon_sort_fn() {
-	global $wpdb;
+	global $wpdb,$baseURL;
 	
 	$cnss_width = get_option('cnss-width');
 	$cnss_height = get_option('cnss-height');
 	
-	$image_file_path = "../wp-content/uploads/";
+	$image_file_path = $baseURL; //"../wp-content/uploads/";
 	$table_name = $wpdb->prefix . "cn_social_icon";
 	$sql = "SELECT * FROM ".$table_name." WHERE 1 ORDER BY sortorder";
 	$video_info = $wpdb->get_results($sql);
@@ -412,7 +418,7 @@ function cnss_save_ajax_order()
 
 function cnss_social_icon_add_fn() {
 
-	global $err,$msg;
+	global $err,$msg,$baseURL;
 
 	if (isset($_GET['mode'])) {
 		if ( $_REQUEST['mode'] != '' and $_REQUEST['mode'] == 'edit' and  $_REQUEST['id'] != '' )
@@ -422,13 +428,12 @@ function cnss_social_icon_add_fn() {
 			$cnss_height = get_option('cnss-height');
 			//$cnss_margin = get_option('cnss-margin');
 	
-		
 			$page_title = 'Edit Icon';
 			$uptxt = 'Upload Icon';
 			
 			global $wpdb;
 			$table_name = $wpdb->prefix . "cn_social_icon";
-			$image_file_path = "../wp-content/uploads/";
+			$image_file_path = $baseURL; //"../wp-content/uploads/";
 			$sql = "SELECT * FROM ".$table_name." WHERE id =".$_REQUEST['id'];
 			$video_info = $wpdb->get_results($sql);
 			
@@ -458,10 +463,9 @@ function cnss_social_icon_add_fn() {
 ?>
 <div class="wrap">
 <?php
-if($msg!='' or $err!='')
-	echo '<div id="message" class="updated fade">'. $msg.$err.'</div>';
+if($msg!='') echo '<div id="message" class="updated fade">'.$msg.'</div>';
+if($err!='') echo '<div id="message" class="error fade">'.$err.'</div>';
 ?>
-
 <h2><?php echo $page_title;?></h2>
 
 <form method="post" enctype="multipart/form-data" action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>">
@@ -529,12 +533,12 @@ if($msg!='' or $err!='')
 
 function cnss_social_icon_page_fn() {
 	
-	global $wpdb;
+	global $wpdb,$baseURL;
 	
 	$cnss_width = get_option('cnss-width');
 	$cnss_height = get_option('cnss-height');
 	
-	$image_file_path = "../wp-content/uploads/";
+	$image_file_path = $baseURL; //"../wp-content/uploads/";
 	$table_name = $wpdb->prefix . "cn_social_icon";
 	$sql = "SELECT * FROM ".$table_name." WHERE 1 ORDER BY sortorder";
 	$video_info = $wpdb->get_results($sql);
@@ -625,10 +629,10 @@ function cn_social_icon() {
 	$cnss_rows = get_option('cnss-row-count');
 	$vorh = get_option('cnss-vertical-horizontal');
 
-	$upload_dir = wp_upload_dir(); 
-	global $wpdb;
+	//$upload_dir = wp_upload_dir(); 
+	global $wpdb,$baseURL;
 	$table_name = $wpdb->prefix . "cn_social_icon";
-	$image_file_path = $upload_dir['baseurl'];
+	$image_file_path = $baseURL; //$upload_dir['baseurl'];
 	$sql = "SELECT * FROM ".$table_name." WHERE image_url<>'' AND url<>'' ORDER BY sortorder";
 	$video_info = $wpdb->get_results($sql);
 	$icon_count = count($video_info);
