@@ -71,6 +71,9 @@ Also you can use the widget for the sidebar.
 
 == Changelog ==
 
+= 1.1 =
+* icon upload folder fix
+
 = 1.0 =
 * Add sorting icon using drag drop
 * Built in 5 social icons preloaded as sample icon, to save your time (facebook, twitter, linkedin, flickr, youtube).
