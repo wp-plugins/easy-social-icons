@@ -2,9 +2,9 @@
 Contributors: cybernetikz
 Donate link: 
 Tags: easy social icon,easy social icons,social icon,social icons,social,social share,follow,followus,follow us,share,icon
-Requires at least: 2.8.6
-Tested up to: 4.0
-Stable tag: 1.1
+Requires at least: 3.5
+Tested up to: 4.1
+Stable tag: 1.2
 
 You can upload your own social icon, set your social URL, choose weather you want to display vertical or horizontal.
 
@@ -70,6 +70,10 @@ Also you can use the widget for the sidebar.
 8. sort icons usign drag drop
 
 == Changelog ==
+
+= 1.2 =
+* integrate WordPress media uploader
+* some security updates
 
 = 1.1 =
 * icon upload folder fix
