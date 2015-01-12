@@ -12,6 +12,8 @@ You can upload your own social icon, set your social URL, choose weather you wan
 
 You can upload your own social icon, set your social URL, choose weather you want to display vertical or horizontal. You can use the shortcode <strong>[cn-social-icon]</strong> in page/post, template tag for php file <strong><?php if ( function_exists('cn_social_icon') ) echo cn_social_icon(); ?></strong> also you can use the widget <strong>"Easy Social Icons"</strong> for sidebar.
 
+<strong>No predefined/built-in icon added.</strong>
+
 > <strong>PAID SUPPORT ($30/Hr, We ACCEPT PAYPAL )</strong>
 >
 > We assume most of the users would find it easy to install & use this plugin but those who needs support on any of the following:
@@ -72,8 +74,9 @@ Also you can use the widget for the sidebar.
 == Changelog ==
 
 = 1.2 =
-* integrate WordPress media uploader
-* some security updates
+* Integrate WordPress default media uploader
+* Some security updates
+* Remove preloaded sample icon as icon upload method change
 
 = 1.1 =
 * icon upload folder fix
