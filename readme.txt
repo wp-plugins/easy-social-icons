@@ -10,9 +10,11 @@ You can upload your own social icon, set your social URL, choose weather you wan
 
 == Description ==
 
+<strong>There is oo predefined / built-in icon added in the plugins, you have to upload you own custom social icons.</strong>
+
 You can upload your own social icon, set your social URL, choose weather you want to display vertical or horizontal. You can use the shortcode <strong>[cn-social-icon]</strong> in page/post, template tag for php file <strong><?php if ( function_exists('cn_social_icon') ) echo cn_social_icon(); ?></strong> also you can use the widget <strong>"Easy Social Icons"</strong> for sidebar.
 
-<strong>No predefined/built-in icon added.</strong>
+<strong>If you are using wordpress version lower than 3.5 please use Easy social Icon version <a href="https://downloads.wordpress.org/plugin/easy-social-icons.1.0.zip">1.1</a></strong>
 
 > <strong>PAID SUPPORT ($30/Hr, We ACCEPT PAYPAL )</strong>
 >
@@ -55,10 +57,12 @@ Please visit our site <a target="_blank" href="http://www.cybernetikz.com/blog/w
 == Frequently Asked Questions ==
 
 = Ques : How use this plugins? =
-Ans : 
-Use this shortcode for page/post <strong>[cn-social-icon]</strong> , for php code use this template tag <strong>&lt;?php if ( function_exists('cn_social_icon') ) echo cn_social_icon(); ?&gt;</strong>
+Ans : Use this shortcode for page/post <strong>[cn-social-icon]</strong> , for php code use this template tag <strong>&lt;?php if ( function_exists('cn_social_icon') ) echo cn_social_icon(); ?&gt;</strong>
 
 Also you can use the widget for the sidebar.
+
+= Ques : What if my wordpress version is below 3.5 ? =
+Ans : If you are using wordpress version lower than 3.5 please use Easy social Icon version <a href="https://downloads.wordpress.org/plugin/easy-social-icons.1.0.zip">1.1</a>
 
 == Screenshots ==
 
