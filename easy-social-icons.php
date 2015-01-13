@@ -42,7 +42,6 @@ add_action( 'admin_enqueue_scripts', 'cnss_admin_enqueue' );*/
 function cnss_my_script() {
 	global $pluginsURI;
 	wp_enqueue_script( 'jquery' );
-	wp_enqueue_media();
 	wp_enqueue_script('jquery-ui-sortable');
 	wp_register_script('cnss_js', $pluginsURI . 'js/cnss.js', array(), '1.0' );
 	wp_enqueue_script( 'cnss_js' );	
@@ -50,7 +49,20 @@ function cnss_my_script() {
 	wp_register_style('cnss_css', $pluginsURI . 'css/cnss.css', array(), '1.0' );
 	wp_enqueue_style( 'cnss_css' );	
 }
+
+function cnss_admin_enqueue($hook) {
+	if ($hook!='easy-social-icon_page_cnss_social_icon_add')
+	{
+		return;
+	}
+	global $pluginsURI;
+	wp_enqueue_media();
+	wp_register_script('cnss_admin_js', $pluginsURI . 'js/cnss_admin.js', array(), '1.0' );
+	wp_enqueue_script( 'cnss_admin_js' );	
+}
+
 add_action('init', 'cnss_my_script');
+add_action('admin_enqueue_scripts', 'cnss_admin_enqueue' );
 add_action('wp_ajax_update-social-icon-order', 'cnss_save_ajax_order' );
 add_action('admin_menu', 'cnss_add_menu_pages');
 
