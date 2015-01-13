@@ -13,7 +13,7 @@ if( !defined('ABSPATH') ) die('-1');
 $upload_dir = wp_upload_dir();
 //print_r($upload_dir);
 $baseDir = $upload_dir['basedir'].'/';
-$baseURL = $upload_dir['baseurl'].'/';
+$baseURL = $upload_dir['baseurl'].'';
 $pluginsURI = plugins_url('/easy-social-icons/');
 
 function generateRandomCode($length)
@@ -398,11 +398,18 @@ function cnss_social_icon_sort_fn() {
 		
 		<div id="order-post-type">
 			<ul id="sortable">
-			<?php foreach($video_info as $vdoinfo) { ?>
+			<?php 
+			foreach($video_info as $vdoinfo) { 
+				if(strpos($vdoinfo->image_url,'/')===false)
+					$image_url = $image_file_path.'/'.$vdoinfo->image_url;
+				else
+					$image_url = $vdoinfo->image_url;
+			
+			?>
 					<li id="item_<?php echo $vdoinfo->id ?>">
 					<table width="100%" border="0" cellspacing="0" cellpadding="0">
 					  <tr style="background:#f7f7f7">
-						<td width="60">&nbsp;<img src="<?php echo $vdoinfo->image_url;?>" border="0" width="<?php echo $cnss_width ?>" height="<?php echo $cnss_height ?>" alt="<?php echo $vdoinfo->title;?>" /></td>
+						<td width="60">&nbsp;<img src="<?php echo $image_url;?>" border="0" width="<?php echo $cnss_width ?>" height="<?php echo $cnss_height ?>" alt="<?php echo $vdoinfo->title;?>" /></td>
 						<td><span><?php echo $vdoinfo->title;?></span></td>
 					  </tr>
 					</table>
@@ -491,6 +498,12 @@ function cnss_social_icon_add_fn() {
 				$image_url = $video_info[0]->image_url;
 				$sortorder = $video_info[0]->sortorder;
 				$target = $video_info[0]->target;
+				
+				if(strpos($image_url,'/')===false)
+					$image_url = $image_file_path.'/'.$image_url;
+				else
+					$image_url = $image_url;
+				
 			}
 		}
 	}
@@ -624,7 +637,13 @@ function cnss_social_icon_page_fn() {
 			</thead>
 			
 			<tbody>
-			<?php foreach($video_info as $vdoinfo){ ?>
+			<?php
+			foreach($video_info as $vdoinfo) { 
+				if(strpos($vdoinfo->image_url,'/')===false)
+					$image_url = $image_file_path.'/'.$vdoinfo->image_url;
+				else
+					$image_url = $vdoinfo->image_url;
+			?>
 			<tr valign="top">
 				<td>
 					<?php echo $vdoinfo->title;?>
@@ -637,7 +656,7 @@ function cnss_social_icon_page_fn() {
 				</td>
 				
 				<td>
-					<img src="<?php echo $vdoinfo->image_url;?>" border="0" width="<?php echo $cnss_width ?>" height="<?php echo $cnss_height ?>" alt="<?php echo $vdoinfo->title;?>" />
+					<img src="<?php echo $image_url;?>" border="0" width="<?php echo $cnss_width ?>" height="<?php echo $cnss_height ?>" alt="<?php echo $vdoinfo->title;?>" />
 				</td>
 	
 				<td>
@@ -703,8 +722,12 @@ function cn_social_icon() {
 	$i=0;
 	foreach($video_info as $icon)
 	{ 
-	//$image_url = $image_file_path.'/'.$icon->image_url;
-	$image_url = $icon->image_url;
+	
+	if(strpos($icon->image_url,'/')===false)
+		$image_url = $image_file_path.'/'.$icon->image_url;
+	else
+		$image_url = $icon->image_url;
+	
 	echo $vorh=='vertical'?'<tr>':'';
 	if($i++%$_columnCount==0 && $vorh!='vertical' )echo '<tr>';
 	?><td style="width:<?php echo $td_width ?>px"><a <?php echo ($icon->target==1)?'target="_blank"':'' ?> title="<?php echo $icon->title ?>" href="<?php echo $icon->url ?>"><img src="<?php echo $image_url?>" border="0" width="<?php echo $cnss_width ?>" height="<?php echo $cnss_height ?>" alt="<?php echo $icon->title ?>" /></a></td><?php 
