@@ -3,7 +3,7 @@
 Plugin Name: Easy Social Icons
 Plugin URI: http://www.cybernetikz.com
 Description: You can upload your own social icon, set your social URL, choose weather you want to display vertical or horizontal. You can use the shortcode <strong>[cn-social-icon]</strong> in page/post, template tag for php file <strong>&lt;?php if ( function_exists('cn_social_icon') ) echo cn_social_icon(); ?&gt;</strong> also you can use the widget <strong>"Easy Social Icons"</strong> for sidebar.
-Version: 1.2
+Version: 1.2.1
 Author: cybernetikz
 Author URI: http://www.cybernetikz.com
 License: GPL2
@@ -28,17 +28,6 @@ function generateRandomCode($length)
 	return $url;
 }
 
-/*function cnss_admin_enqueue($hook) {
-	global $pluginsURI;
-	echo $pluginsURI;
-    if( 'index.php' != $hook )
-        return;
-	wp_register_script( 'add_media_js', $pluginsURI.'js/add-media.js' );
-	wp_enqueue_script('add_media_js');
-	wp_enqueue_media();
-}
-add_action( 'admin_enqueue_scripts', 'cnss_admin_enqueue' );*/	
-
 function cnss_my_script() {
 	global $pluginsURI;
 	wp_enqueue_script( 'jquery' );
@@ -50,19 +39,18 @@ function cnss_my_script() {
 	wp_enqueue_style( 'cnss_css' );	
 }
 
-function cnss_admin_enqueue($hook) {
-	if ($hook!='easy-social-icon_page_cnss_social_icon_add')
-	{
-		return;
-	}
+function cnss_admin_enqueue() {
+	//if ($hook!='easy-social-icon_page_cnss_social_icon_add') return; //$hook
 	global $pluginsURI;
 	wp_enqueue_media();
 	wp_register_script('cnss_admin_js', $pluginsURI . 'js/cnss_admin.js', array(), '1.0' );
 	wp_enqueue_script( 'cnss_admin_js' );	
 }
+if( $_GET['page']=='cnss_social_icon_add' ) {
+	add_action('admin_enqueue_scripts', 'cnss_admin_enqueue' );
+}
 
 add_action('init', 'cnss_my_script');
-add_action('admin_enqueue_scripts', 'cnss_admin_enqueue' );
 add_action('wp_ajax_update-social-icon-order', 'cnss_save_ajax_order' );
 add_action('admin_menu', 'cnss_add_menu_pages');
 
