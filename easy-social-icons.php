@@ -3,7 +3,7 @@
 Plugin Name: Easy Social Icons
 Plugin URI: http://www.cybernetikz.com
 Description: You can upload your own social icon, set your social URL, choose weather you want to display vertical or horizontal. You can use the shortcode <strong>[cn-social-icon]</strong> in page/post, template tag for php file <strong>&lt;?php if ( function_exists('cn_social_icon') ) echo cn_social_icon(); ?&gt;</strong> also you can use the widget <strong>"Easy Social Icons"</strong> for sidebar.
-Version: 1.2.1
+Version: 1.2.2
 Author: cybernetikz
 Author URI: http://www.cybernetikz.com
 License: GPL2
@@ -46,8 +46,11 @@ function cnss_admin_enqueue() {
 	wp_register_script('cnss_admin_js', $pluginsURI . 'js/cnss_admin.js', array(), '1.0' );
 	wp_enqueue_script( 'cnss_admin_js' );	
 }
-if( $_GET['page']=='cnss_social_icon_add' ) {
-	add_action('admin_enqueue_scripts', 'cnss_admin_enqueue' );
+
+if( isset($_GET['page']) ) {
+	if( $_GET['page']=='cnss_social_icon_add' ) {
+		add_action('admin_enqueue_scripts', 'cnss_admin_enqueue' );
+	}
 }
 
 add_action('init', 'cnss_my_script');
@@ -264,8 +267,8 @@ if (isset($_POST['submit_button'])) {
 			$insert = "INSERT INTO " . $table_name .
 			" (title, url, image_url, sortorder, date_upload, target) " .
 			"VALUES ('" . 
-			$wpdb->escape( $_POST['title']) . "','" . 
-			$wpdb->escape( $_POST['url']) . "','" . 
+			mysql_real_escape_string( $_POST['title']) . "','" . 
+			mysql_real_escape_string( $_POST['url']) . "','" . 
 			$_POST['image_file'] . "'," . 
 			$_POST['sortorder'] . ",'" . 
 			time() . "'," . 
@@ -347,7 +350,7 @@ if (isset($_POST['submit_button'])) {
 		}*/
 		
 		$update = "UPDATE " . $table_name . " SET " . 
-		"title='" .$wpdb->escape( $_POST['title']) . "'," . 
+		"title='" .mysql_real_escape_string( $_POST['title']) . "'," . 
 		"url='" . $url . "'," . 
 		"image_url='" . $_POST['image_file'] . "'," . 
 		"sortorder=" .$_POST['sortorder'] . "," . 
