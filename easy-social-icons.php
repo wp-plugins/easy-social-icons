@@ -3,7 +3,7 @@
 Plugin Name: Easy Social Icons
 Plugin URI: http://www.cybernetikz.com
 Description: You can upload your own social icon, set your social URL, choose weather you want to display vertical or horizontal. You can use the shortcode <strong>[cn-social-icon]</strong> in page/post, template tag for php file <strong>&lt;?php if ( function_exists('cn_social_icon') ) echo cn_social_icon(); ?&gt;</strong> also you can use the widget <strong>"Easy Social Icons"</strong> for sidebar.
-Version: 1.2.2
+Version: 1.2.3
 Author: cybernetikz
 Author URI: http://www.cybernetikz.com
 License: GPL2
