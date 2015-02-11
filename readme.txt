@@ -44,8 +44,8 @@ If you are using <strong>wordpress version lower than 3.5</strong> please use "E
 * You can insert your social icon set in pages/posts using short code
 * Sort social media icons using drag drop
 * Also if you are familiar with php code then you can use the template tag to place the social icon set anywhere in the php template file
-* Responsive feature added, so <strike>You can display the icons split by rows, input the number of rows in the plugins admin option page</strike> removed
-* <strike>Built in 5 social icons preloaded as sample icon, to save your time (facebook, twitter, linkedin, flickr, youtube).</strike>
+* Responsive feature added, so <span style="text-decoration: line-through;">You can display the icons split by rows, input the number of rows in the plugins admin option page</span> removed
+* <span style="text-decoration: line-through;">Built in 5 social icons preloaded as sample icon, to save your time (facebook, twitter, linkedin, flickr, youtube).</span>
 
 Please visit our site <a target="_blank" href="http://www.cybernetikz.com/blog/wordpress-plugins-easy-social-icons/">www.cybernetikz.com/</a>
 
