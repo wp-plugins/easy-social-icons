@@ -3,7 +3,7 @@ Contributors: cybernetikz
 Donate link: 
 Tags: easy social icon,easy social icons,social icon,social icons,social,social share,follow,followus,follow us,share,icon
 Requires at least: 3.5
-Tested up to: 4.1
+Tested up to: 4.2.2
 Stable tag: 1.2.3.1
 
 You can upload your own social icon, set your social URL, choose weather you want to display vertical or horizontal.
