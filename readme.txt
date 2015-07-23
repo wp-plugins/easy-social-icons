@@ -4,7 +4,7 @@ Donate link:
 Tags: easy social icon,easy social icons,social icon,social icons,social,social share,follow,followus,follow us,share,icon
 Requires at least: 3.5
 Tested up to: 4.2.2
-Stable tag: 1.2.3.1
+Stable tag: 1.2.4
 
 You can upload your own social icon, set your social URL, choose whether you want to display vertical or horizontal.
 
@@ -80,12 +80,15 @@ If you are using wordpress version lower than 3.5 please use Easy social Icon ve
 
 == Changelog ==
 
+= 1.2.4 =
+* Bug fix, Security updates
+
 = 1.2.3.1 =
 * CSS fix
 
 = 1.2.3 =
 * Rsponsive feature added
-* Sequrity updates
+* Security updates
 
 = 1.2.2 =
 * PHP notice/warning fix
