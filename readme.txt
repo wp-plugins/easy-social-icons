@@ -3,14 +3,14 @@ Contributors: cybernetikz
 Donate link: 
 Tags: easy social icon,easy social icons,social icon,social icons,social,social share,follow,followus,follow us,share,icon
 Requires at least: 3.5
-Tested up to: 4.2.3
+Tested up to: 4.2.4
 Stable tag: 1.2.4
 
 You can upload your own social icon, set your social URL, choose whether you want to display vertical or horizontal.
 
 == Description ==
 
-You can upload your own social icon, set your social URL, choose weather you want to display vertical or horizontal. You can use the shortcode <strong>[cn-social-icon]</strong> in page/post, template tag for php file <strong><?php if ( function_exists('cn_social_icon') ) echo cn_social_icon(); ?></strong> also you can use the widget <strong>"Easy Social Icons"</strong> for sidebar.
+You can upload your own social icon, set your social URL, choose weather you want to display vertical or horizontal. You can use the shortcode <strong>[cn-social-icon]</strong> in page/post, template tag for php file <strong>&lt;?php if ( function_exists('cn_social_icon') ) echo cn_social_icon(); ?&gt;</strong> also you can use the widget <strong>"Easy Social Icons"</strong> for sidebar.
 
 <strong>There is no predefined/built-in social icon added in this plugins, you have to upload your own custom social icons first.</strong>
 
@@ -19,7 +19,7 @@ If you are using <strong>wordpress version lower than 3.5</strong> please use "E
 
 > <strong>PAID SUPPORT ($30/Hr, We ACCEPT PAYPAL )</strong>
 >
-> We assume most of the users would find it easy to install & use this plugin but those who needs support on any of the following:
+> We assume most of the users would find it easy to install & use this plugin but those who needs <strong>PAID SUPPORT</strong> on any of the following:
 >
 > <strong>a. Get the plugin installed </strong>
 >
