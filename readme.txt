@@ -10,7 +10,7 @@ You can upload your own social icon, set your social URL, choose whether you wan
 
 == Description ==
 
-You can upload your own social icon, set your social URL, choose weather you want to display vertical or horizontal. You can use the shortcode <strong>[cn-social-icon]</strong> in page/post, template tag for php file <strong>&lt;?php if ( function_exists('cn_social_icon') ) echo cn_social_icon(); ?&gt;</strong> also you can use the widget <strong>"Easy Social Icons"</strong> for sidebar.
+You can upload your own social icon, set your social URL, choose whether you want to display vertical or horizontal. You can use the shortcode <strong>[cn-social-icon]</strong> in page/post, template tag for php file <strong>&lt;?php if ( function_exists('cn_social_icon') ) echo cn_social_icon(); ?&gt;</strong> also you can use the widget <strong>"Easy Social Icons"</strong> for sidebar.
 
 <strong>There is no predefined/built-in social icon added in this plugins, you have to upload your own custom social icons first.</strong>
 
