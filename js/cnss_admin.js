@@ -23,6 +23,7 @@ jQuery(document).ready(function($) {
 			//alert(attachment.id);
             $('#image_file').val(attachment.url);
 			$('#logoimg').attr('width','32');
+			$('#logoimg').attr('height','32');
 			$('#logoimg').attr('src',attachment.url);
 			//$('#ftrimg').attr('src',attachment.sizes.thumbnail.url);
 			

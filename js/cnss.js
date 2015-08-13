@@ -11,4 +11,15 @@ jQuery(document).ready(function($) {
 			//marginTop:'0px'
 		  }, 200 );
 	});
+	
+	jQuery('ul.cnss-social-icon li img').hover(function() {
+		jQuery(this).animate({
+			opacity: 0.5
+		  }, 200 );
+	},
+	function() {
+		jQuery(this).animate({
+			opacity: 1
+		  }, 200 );
+	});
 });

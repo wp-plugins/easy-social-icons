@@ -15,6 +15,39 @@ $baseDir = $upload_dir['basedir'].'/';
 $baseURL = $upload_dir['baseurl'].'';
 $pluginsURI = plugins_url('/easy-social-icons/');
 
+function cnss_admin_sidebar() {
+
+	$banners = array(
+		array(
+			'url' => 'http://www.cybernetikz.com/wordpress-magento-plugins/wordpress-plugins/?utm_source=easy-social-icons&utm_medium=banner&utm_campaign=wordpress-plugins',
+			'img' => 'banner-1.jpg',
+			'alt' => 'Banner 1',
+		),
+		array(
+			'url' => 'http://www.cybernetikz.com/portfolio/web-development/wordpress-website/?utm_source=easy-social-icons&utm_medium=banner&utm_campaign=wordpress-plugins',
+			'img' => 'banner-2.jpg',
+			'alt' => 'Banner 2',
+		),
+		array(
+			'url' => 'http://www.cybernetikz.com/seo-consultancy/?utm_source=easy-social-icons&utm_medium=banner&utm_campaign=wordpress-plugins',
+			'img' => 'banner-3.jpg',
+			'alt' => 'Banner 3',
+		),
+	);
+	shuffle( $banners );
+	?>
+	<div class="cn_admin_banner">
+	<?php
+	$i = 0;
+	foreach ( $banners as $banner ) {
+		echo '<a target="_blank" href="' . esc_url( $banner['url'] ) . '"><img width="261" height="190" src="' . plugins_url( 'images/' . $banner['img'], __FILE__ ) . '" alt="' . esc_attr( $banner['alt'] ) . '"/></a><br/><br/>';
+		$i ++;
+	}
+	?>
+	</div>
+<?php
+}
+
 function generateRandomCode($length)
 {
 	$chars = "234567890abcdefghijkmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -26,6 +59,13 @@ function generateRandomCode($length)
 	}
 	return $url;
 }
+
+function cnss_admin_style() {
+	global $pluginsURI;
+	wp_register_style( 'cnss_admin_css', $pluginsURI . 'css/admin-style.css', false, '1.0' );
+	wp_enqueue_style( 'cnss_admin_css' );
+}
+add_action( 'admin_enqueue_scripts', 'cnss_admin_style' );
 
 function cnss_my_script() {
 	global $pluginsURI;
@@ -102,7 +142,9 @@ function cnss_social_icon_option_fn() {
 	
 	?>
 	<div class="wrap">
-	<h2>Social Icon Options</h2>
+    <h2>Social Icon Options</h2>
+    <div class="content_wrapper">
+    <div class="left">
 	<form method="post" action="options.php" enctype="multipart/form-data">
 		<?php settings_fields( 'cnss-settings-group' ); ?>
 		<table class="form-table">
@@ -138,6 +180,11 @@ function cnss_social_icon_option_fn() {
 		<input type="submit" class="button-primary" value="<?php _e('Save Changes') ?>" />
 		</p>
 	</form>
+    </div>
+    <div class="right">
+    <?php cnss_admin_sidebar(); ?>
+    </div>
+    </div>
 	</div>
 	<?php 
 }
