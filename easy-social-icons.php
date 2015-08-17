@@ -3,7 +3,7 @@
 Plugin Name: Easy Social Icons
 Plugin URI: http://www.cybernetikz.com
 Description: You can upload your own social icon, set your social URL, choose weather you want to display vertical or horizontal. You can use the shortcode <strong>[cn-social-icon]</strong> in page/post, template tag for php file <strong>&lt;?php if ( function_exists('cn_social_icon') ) echo cn_social_icon(); ?&gt;</strong> also you can use the widget <strong>"Easy Social Icons"</strong> for sidebar.
-Version: 1.2.4
+Version: 1.2.4.1
 Author: cybernetikz
 Author URI: http://www.cybernetikz.com
 License: GPL2
@@ -34,7 +34,7 @@ function cnss_admin_sidebar() {
 			'alt' => 'Banner 3',
 		),
 	);
-	shuffle( $banners );
+	//shuffle( $banners );
 	?>
 	<div class="cn_admin_banner">
 	<?php
@@ -341,7 +341,9 @@ function cnss_social_icon_sort_fn() {
 		<h2>Sort Icon</h2>
 
 		<div id="ajax-response"></div>
-		
+        <div class="content_wrapper">
+		<div class="left">
+
 		<noscript>
 			<div class="error message">
 				<p><?php _e('This plugin can\'t work without javascript, because it\'s use drag and drop and AJAX.', 'cpt') ?></p>
@@ -393,7 +395,12 @@ function cnss_social_icon_sort_fn() {
 				});
 			});
 		</script>
-		
+        
+        </div>
+        <div class="right">
+        <?php cnss_admin_sidebar(); ?>
+        </div>
+        </div>
 	</div>
 <?php
 }
@@ -473,6 +480,8 @@ if($msg!='') echo '<div id="message" class="updated fade">'.$msg.'</div>';
 if($err!='') echo '<div id="message" class="error fade">'.$err.'</div>';
 ?>
 <h2><?php echo $page_title;?></h2>
+<div class="content_wrapper">
+<div class="left">
 <form method="post" enctype="multipart/form-data" action="">
     <?php wp_nonce_field('cn_insert_icon'); ?>
     <table class="form-table">
@@ -525,6 +534,11 @@ if($err!='') echo '<div id="message" class="error fade">'.$err.'</div>';
     </p>
 </form>
 </div>
+<div class="right">
+<?php cnss_admin_sidebar(); ?>
+</div>
+</div>
+</div>
 <?php 
 } 
 
@@ -556,7 +570,8 @@ function cnss_social_icon_page_fn() {
 		}
 	}
 	</script>
-	
+	<div class="content_wrapper">
+		<div class="left">
 		<table class="widefat page fixed" cellspacing="0">
 			<thead>
 			<tr valign="top">
@@ -617,6 +632,11 @@ function cnss_social_icon_page_fn() {
 			</tr>
 			</tfoot>
 		</table>
+		</div>
+		<div class="right">
+        <?php cnss_admin_sidebar(); ?>
+		</div>
+	</div>
 	</div>
 	<?php
 }
